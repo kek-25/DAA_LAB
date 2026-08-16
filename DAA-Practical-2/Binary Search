@@ -1,0 +1,54 @@
+import time
+
+# Binary Search Function
+def binary_search(arr, n, key):
+    low = 0
+    high = n - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+
+# Take input from the user
+n = int(input("Enter the number of elements: "))
+
+arr = []
+print("Enter the elements:")
+for i in range(n):
+    arr.append(int(input()))
+
+key = int(input("Enter the element to search: "))
+
+# Sort the array
+arr.sort()
+
+# Measure execution time
+start_time = time.perf_counter()
+
+result = binary_search(arr, n, key)
+
+end_time = time.perf_counter()
+
+# Display sorted array
+print("\nSorted Array:", arr)
+
+# Display result
+if result != -1:
+    print("Element found at position:", result + 1)
+else:
+    print("Element not found")
+
+# Display execution time
+execution_time = end_time - start_time
+print("Execution Time: {:.10f} seconds".format(execution_time))
+#Enter your EN.No 
+print("EN.No:92460118706")
